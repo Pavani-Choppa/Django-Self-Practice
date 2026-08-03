@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Level Template</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#eef2ff,#dbeafe);
+        }
+
+        .card{
+            width:600px;
+            background:#ffffff;
+            padding:40px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-6px);
+            box-shadow:0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#1e3a8a;
+            margin-bottom:20px;
+            font-size:32px;
+        }
+
+        h3{
+            color:#2563eb;
+            margin-bottom:20px;
+            font-size:22px;
+        }
+
+        p{
+            color:#555;
+            font-size:18px;
+            line-height:1.8;
+            margin-bottom:15px;
+        }
+
+        .highlight{
+            color:#0f766e;
+            font-weight:bold;
+        }
+
+        .footer{
+            margin-top:25px;
+            color:#6b7280;
+            font-size:15px;
+            font-style:italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <h1>Welcome to My App-Level Template</h1>
+
+        <h3>🚀 Django Templates Made Easy</h3>
+
+        <p>
+            This page demonstrates how an
+            <span class="highlight">App-Level Template</span>
+            works in Django.
+        </p>
+
+        <p>
+            Every application can have its own templates to keep the project
+            organized, reusable, and easy to maintain. Learning templates is
+            one of the first steps toward building dynamic web applications.
+        </p>
+
+        <p>
+            Keep exploring, keep practicing, and remember that every successful
+            project begins with a simple template.
+        </p>
+
+        <div class="footer">
+            ✨ Happy Learning • Happy Coding • Welcome to Django ✨
+        </div>
+
+    </div>
+
+</body>
+</html>
