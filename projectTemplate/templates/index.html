@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#f8f9ff,#ffeef5);
+        }
+
+        .card{
+            width:400px;
+            background:white;
+            padding:30px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 10px 30px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 18px 40px rgba(0,0,0,0.2);
+        }
+
+        .card img{
+            width:220px;
+            border-radius:15px;
+            margin-bottom:20px;
+        }
+
+        h1{
+            color:#6a1b9a;
+            font-size:28px;
+            margin-bottom:15px;
+        }
+
+        .subtitle{
+            color:#444;
+            font-size:18px;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+        p{
+            color:#666;
+            font-size:16px;
+            line-height:1.7;
+        }
+
+        .heart{
+            color:red;
+            font-size:24px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="card">
+
+        <img src="{% static 'images/image.png' %}" alt="Cute Image">
+
+        <h1>Welcome to My Practicing Project Template World</h1>
+
+        <div class="subtitle">
+            Learning one step at a time... 🌸
+        </div>
+
+        <p>
+            Every great developer starts with a simple project.
+            This little space is filled with curiosity, practice,
+            patience, and dreams. <span class="heart">❤</span><br><br>
+
+            <strong>Keep learning, keep smiling, and never stop believing in yourself.</strong>
+            Every line of code brings you one step closer to becoming the developer you aspire to be.
+            Happy Coding! 💖✨
+        </p>
+
+    </div>
+
+</body>
+</html>
