@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables Basics</title>
+</head>
+<body>
+    <h1>Variables Basics</h1>
+    <p> Name : {{ name }} </p>
+    <p> Age : {{ age }} </p>
+    <p> Firs Skill : {{skills.0}} </p>
+    <p> Skills : {{skills}} </p>
+    <p>User : {{user.name}}, Age : {{user.age}}</p>
+    <p>Title : {{blog.title}}</p>
+    <p>Content : {{blog.content}}</p>
+    
+    <p>Content : {{blog.content|safe}}</p>
+    <p>Date Posted : {{blog.date_posted}}</p>
+    <p>Author Email : {{blog.author.email}}</p>
+    <p>Empty Value : {{empty_value}}</p>
+    <p>Default Empty Value : {{empty_value|default:"No value provided"}}</p>
+    <p>Default If None Empty Value : {{empty_value|default_if_none:"No value provided"}}</p>
+
+</body>
+</html>
