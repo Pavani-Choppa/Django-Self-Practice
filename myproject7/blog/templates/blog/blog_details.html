@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Blog Details </h1> 
+    <p>{{today}}</p>
+    <!-- if block -->
+     {% if blog.0.is_featured %}
+        <h2> <b>{{blog.0.title}}</b> - Normal Blog </h2>
+        {% else %}
+        <h2> <b>{{blog.0.title}}</b> - Regular Blogs </h2>
+     {% endif %}
+     <!-- for loop -->
+      <ul>
+        {% for blog in blog %}
+            <li> {{forloop.counter}}.{{blog.title}} - {{blog.Author}} </li>
+            {% empty %}
+            <li>No blogs available.</li>
+        {% endfor %}
+      </ul>
+    <!-- to count the number of blogs, we can use the length filter -->
+    {% with blog_length=blog|length %}
+      <p>Total blogs: {{ blog_length }}</p>
+    {% endwith %}
+
+    <hr>
+    <h2> HTML Code Rendering </h2>
+    <Table border="1" cellpadding="4" cellspacing="0">
+        {% for blog in blog %}
+            <tr style="background-color: {% cycle '#f2f2f2' 'lightgreen' %};">
+                <td>{{forloop.counter}}</td>
+                <td>{{blog.title}}</td>
+                <td>{{blog.Author}}</td>
+                <td>{{ blog.is_featured | yesno:"Yes,No" }}</td>
+            </tr>
+        {% endfor %}
+    </Table>
+    <p>Author : {% firstof blog.1.Author "Anonymous" %}</p>
+    <p>{{ today }}</p>
+    <p>{{ blog.0.Author }}</p>
+    {% verbatim %}
+        <p>{{ blog.0.Author }}</p>
+    {% endverbatim %}
+
+    <h2> AutoEscape </h2>
+    <p>default (Safe Escaped): {{html_code}}</p>
+    <p>autoescape off:{{ html_code|safe }}</p>
+    <p>autoescape On : {{ html_code|escape }}</p>
+    {% autoescape off %}
+        <p>aOH : {{ html_code }}</p>
+    {% endautoescape %}
+
+</body>
+</html>
