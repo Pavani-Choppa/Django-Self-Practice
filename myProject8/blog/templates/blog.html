@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %} This is Blog Title {% endblock title %}
+{% block content %}
+
+<h2>This is blog content</h2>
+
+{% regroup student_list by class as grouped_student %}
+
+<ul>
+    {% for group in grouped_student %}
+        <li>Class : {{ group.grouper }}</li>
+
+        <ul>
+            {% for student in group.list %}
+                <li>{{ student.title }}</li>
+            {% endfor %}
+        </ul>
+
+    {% endfor %}
+</ul>
+
+
+
+{% with ratio=50 %}
+    <p>Progress: {{ ratio }}%</p>
+{% endwith %}
+
+{% spaceless %}
+    <div>
+        <span> This is an </span>
+        <span> Example for Spaceless  </span>
+    </div>
+{% endspaceless %}
+
+{% filter upper %}
+    This is and Example for upper
+{% endfilter %}
+
+
+{% endblock %}
