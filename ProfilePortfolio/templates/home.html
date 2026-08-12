@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero">
+
+</section>
+
+<section class="projects">
+    <h2>Featured Project</h2>
+
+    <div class="project-grid">
+
+        
+
+        <div class="project-card">
+            <img src="{% static 'images/main.png' %}" alt="Project 2">
+            Portfolio Project
+        </div>
+
+        <div class="project-card">
+            <img src="{% static 'images/login.png' %}" alt="Project 3">
+            Login Page
+        </div>
+
+        <div class="project-card">
+            <img src="{% static 'images/copilot.png' %}" alt="Project 4">
+            CoPilot Project
+        </div>
+
+        <div class="project-card">
+            <img src="{% static 'images/vd.png' %}" alt="Project 5">
+            Video Editing Project
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
