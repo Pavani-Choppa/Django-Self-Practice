@@ -10,3 +10,5 @@ def student_create(request):
             form.save()
             return render(request,'student_success.html')
     return render(request,'student_form.html',{'form':form})
+
+
