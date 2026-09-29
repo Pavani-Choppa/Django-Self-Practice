@@ -58,31 +58,42 @@ from .serializers import StudentSerializer
 
 # Generic API View
 
-class StudentListCreateAPIView(generics.ListCreateAPIView,mixins.ListModelMixin,mixins.CreateModelMixin):
+# class StudentListCreateAPIView(generics.ListCreateAPIView,mixins.ListModelMixin,mixins.CreateModelMixin):
+#     queryset = Student.objects.all()
+#     serializer_class = StudentSerializer
+
+#     #To Return List of Student
+#     def get(self,request,*args,**kwargs):
+#         return self.list(request,*args,**kwargs)
+
+#     # to create a new student
+#     def post(self,request,*args,**kwargs):
+#         return self.create(request,*args,**kwargs)
+
+# class StudentRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
+#     queryset = Student.objects.all()
+#     serializer_class = StudentSerializer
+
+#     # To retrieve a student by ID
+#     def get(self,request,*args,**kwargs):
+#         return self.retrieve(request,*args,**kwargs)
+
+#     # To update a student by ID
+#     def put(self,request,*args,**kwargs):
+#         return self.update(request,*args,**kwargs)
+
+#     # To delete a student by ID
+#     def delete(self,request,*args,**kwargs):
+#         return self.destroy(request,*args,**kwargs)
+
+
+
+from rest_framework import viewsets
+
+from .models import Student
+from .serializers import StudentSerializer
+
+
+class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
-
-    #To Return List of Student
-    def get(self,request,*args,**kwargs):
-        return self.list(request,*args,**kwargs)
-
-    # to create a new student
-    def post(self,request,*args,**kwargs):
-        return self.create(request,*args,**kwargs)
-
-class StudentRetrieveUpdateDeleteAPIView(generics.RetrieveUpdateDestroyAPIView,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
-
-    # To retrieve a student by ID
-    def get(self,request,*args,**kwargs):
-        return self.retrieve(request,*args,**kwargs)
-
-    # To update a student by ID
-    def put(self,request,*args,**kwargs):
-        return self.update(request,*args,**kwargs)
-
-    # To delete a student by ID
-    def delete(self,request,*args,**kwargs):
-        return self.destroy(request,*args,**kwargs)
-
