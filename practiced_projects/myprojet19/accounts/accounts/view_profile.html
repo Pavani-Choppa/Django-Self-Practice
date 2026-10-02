@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profiles
+{% endblock %}
+
+{% block content %}
+
+<h1>Profiles</h1>
+
+{% for profile in profiles %}
+
+    <h3>{{ profile.name }}</h3>
+
+    {% if profile.image %}
+        <img src="{{ profile.image.url }}"
+             alt="{{ profile.name }}"
+             width="200">
+    {% endif %}
+
+    <hr>
+
+{% empty %}
+
+    <p>No profiles uploaded yet.</p>
+
+{% endfor %}
+
+<a href="{% url 'upload_profile' %}">
+    Upload Another Profile
+</a>
+
+{% endblock %}
