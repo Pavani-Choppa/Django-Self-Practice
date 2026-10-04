@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Main heading */
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Post list */
+        ul {
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Individual post */
+        li {
+            background-color: #f8f9fa;
+            margin-bottom: 15px;
+            padding: 18px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #6c63ff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Post title */
+        li b {
+            color: #6c63ff;
+            font-size: 18px;
+        }
+
+        /* Pagination container */
+        .paginator {
+            width: 70%;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        /* Pagination links */
+        .step-links a {
+            display: inline-block;
+            padding: 8px 14px;
+            margin: 3px;
+            text-decoration: none;
+            color: white;
+            background-color: #6c63ff;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            transition: 0.3s;
+        }
+
+        /* Hover effect */
+        .step-links a:hover {
+            background-color: #4b44c7;
+        }
+
+        /* Current page */
+        .step-links .current {
+            display: inline-block;
+            padding: 8px 14px;
+            margin: 3px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            ul,
+            .paginator {
+                width: 90%;
+            }
+
+            li {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Post List</h1>
+    <ul>
+        {% for post in page_obj %}
+            <li><b>{{ post.title }}</b>---{{ post.content }}</li>
+
+        {% endfor %}
+    </ul>
+    <div class="paginator">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <!-- <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span> -->
+            {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                    <span class="current">{{ num }}</span>
+                <!-- {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %} -->
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span> 
+    </div>
+</body>
+</html>
