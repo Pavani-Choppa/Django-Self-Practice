@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Search & Filter Example/h1>
+    <form method="get" class="search-form">
+        <input type="text" name="search" placeholder="Search..." value="{{ query }}">
+        <select name="category">
+            <option value="">All Categories</option>
+            <option value="Tech & Humor" {% if selected_category == 'Tech & Humor' %}selected{% endif %}>Tech & Humor</option>
+            <option value="Nature & Humor" {% if selected_category == 'Nature & Humor' %}selected{% endif %}>Nature & Humor</option>
+            <option value="Food & Humor" {% if selected_category == 'Food & Humor' %}selected{% endif %}>Food & Humor</option>
+            <option value="Home & Humor" {% if selected_category == 'Home & Humor' %}selected{% endif %}>Home & Humor</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for post in posts %}
+            <li><h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <p><strong>Category:</strong> {{ post.category }}</p>
+            </li>
+        {% empty %}
+            <li>No posts found.</li>
+        {% endfor %}    
+    </ul>
+</body>
+</html>
